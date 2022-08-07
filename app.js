@@ -72,6 +72,22 @@ function gameLogic() {
             }
         ]
         scoreElement.innerHTML = `New High Score : ${score}`
+        saveHighScore(score)
+    }
+
+    function saveHighScore(score) {
+        let scoreArr
+        if (localStorage.getItem('score') === null) scoreArr = []
+        else scoreArr = JSON.parse(localStorage.getItem('score'))
+        scoreArr.push(score)
+        localStorage.setItem('score', JSON.stringify(scoreArr))
+        const lastScore = scoreArr[scoreArr.length - 1]
+        const prevScore = scoreArr[scoreArr.length - 2]
+        if (lastScore > prevScore) {
+            scoreElement.innerHTML = `New High Score : ${score}`
+        } else {
+            scoreElement.innerHTML = `Score : ${score}`
+        }
     }
 
     // If the snake has the eaten the food, increment the score and regenerate the food
