@@ -1,13 +1,15 @@
 // Selectors
 const gameElement = document.getElementById('game')
+const btn = document.getElementById('reloadBtn')
+const scoreElement = document.getElementById('score')
 
 // Initial variables
 let inputDirection = {
     x: 0,
     y: 0
 }
-let SPEED = 8
-let lastPainTime = 0
+let SPEED = 5
+let lastPaintTime = 0
 let snakeArray = [
     {
         x: 13,
@@ -15,8 +17,8 @@ let snakeArray = [
     }
 ]
 let food = {
-    x: 3,
-    y: 5
+    x: Math.round(Math.random() * 10),
+    y: Math.round(Math.random() * 8)
 }
 let score = 0
 
@@ -24,9 +26,9 @@ let score = 0
 
 function main(currentTime) {
     requestAnimationFrame(main)
-    if ((currentTime - lastPainTime) / 1000 < 1 / SPEED) return
+    if ((currentTime - lastPaintTime) / 1000 < 1 / SPEED) return
     else {
-        lastPainTime = currentTime
+        lastPaintTime = currentTime
         gameLogic()
     }
 }
@@ -44,6 +46,12 @@ function isCollide(snake) {
     }
 }
 
+// Add an Event Listener to the button to reload the page
+btn.addEventListener('click', () => {
+    // reload the page when game over
+    location.reload()
+})
+
 function gameLogic() {
     gameElement.innerHTML = ''
 
@@ -53,14 +61,17 @@ function gameLogic() {
             x: 0,
             y: 0
         }
-        alert('Game Over')
+        // Show the restart button
+        btn.style.display = 'inline-block'
+        // If the game is over then set the speed to zero so that the snake does not move
+        SPEED = 0
         snakeArray = [
             {
                 x: 13,
                 y: 15
             }
         ]
-        score = 0
+        scoreElement.innerHTML = `New High Score : ${score}`
     }
 
     // If the snake has the eaten the food, increment the score and regenerate the food
@@ -75,6 +86,8 @@ function gameLogic() {
             x: Math.round(a + (b - a) * Math.random()),
             y: Math.round(a + (b - a) * Math.random())
         }
+        score++
+        scoreElement.innerHTML = `Score : ${score}`
     }
 
     // Moving the snake

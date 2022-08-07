@@ -17,6 +17,10 @@ body {
     align-items: center;
 }
 
+.container {
+    text-align: center;
+}
+
 .container h1 {
     padding: 1rem;
     color: white;
@@ -37,12 +41,35 @@ body {
 
 .snake_head {
     background: black;
+    border: .25vmin solid white;
 }
 
 .snake_body {
     background: yellowgreen;
+    border: .25vmin solid white;
 }
 
 .food {
     background: yellow;
+}
+
+button {
+    padding: 0.5em 0.75em;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 2px;
+    background: green;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+}
+
+#score {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    color: white;
 }
