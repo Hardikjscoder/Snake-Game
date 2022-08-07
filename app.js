@@ -83,7 +83,8 @@ function gameLogic() {
         localStorage.setItem('score', JSON.stringify(scoreArr))
         const lastScore = scoreArr[scoreArr.length - 1]
         const prevScore = scoreArr[scoreArr.length - 2]
-        if (lastScore > prevScore) {
+        const max = Math.max(...scoreArr)
+        if (lastScore > prevScore || Number.parseInt(lastScore) > Number.parseInt(max)) {
             scoreElement.innerHTML = `New High Score : ${score}`
         } else {
             scoreElement.innerHTML = `Score : ${score}`
