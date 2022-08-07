@@ -2,6 +2,8 @@
 const gameElement = document.getElementById('game')
 const btn = document.getElementById('reloadBtn')
 const scoreElement = document.getElementById('score')
+const pauseGameBtn = document.getElementById('pauseBtn')
+const resumeGameBtn = document.getElementById('resumeBtn')
 
 // Initial variables
 let inputDirection = {
@@ -63,6 +65,8 @@ function gameLogic() {
         }
         // Show the restart button
         btn.style.display = 'inline-block'
+        resumeGameBtn.style.display = 'none'
+        pauseGameBtn.style.display = 'none'
         // If the game is over then set the speed to zero so that the snake does not move
         SPEED = 0
         snakeArray = [
@@ -131,6 +135,19 @@ function gameLogic() {
     foodElement.setAttribute('class', 'food')
     gameElement.appendChild(foodElement)
 }
+
+pauseGameBtn.addEventListener('click', () => {
+    SPEED = 0
+    pauseGameBtn.style.display = 'none'
+    resumeGameBtn.style.display = 'inline-block'
+})
+
+resumeGameBtn.addEventListener('click', () => {
+    SPEED = 5
+    pauseGameBtn.style.display = 'inline-block'
+    resumeGameBtn.style.display = 'none'
+})
+
 
 // Main logic
 requestAnimationFrame(main)
