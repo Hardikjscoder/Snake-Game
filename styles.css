@@ -41,12 +41,10 @@ body {
 
 .snake_head {
     background: black;
-    border: .25vmin solid white;
 }
 
 .snake_body {
     background: yellowgreen;
-    border: .25vmin solid white;
 }
 
 .food {
