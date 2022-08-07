@@ -25,8 +25,9 @@ body {
 
 #game {
     background: #1d875a;
-    width: 70vw;
-    height: 60vh;
+    width: 70vmin;
+    height: 60vmin;
+    filter: drop-shadow(0rem 0rem 1rem white);
     border: none;
     border-radius: 10px;
     display: grid;
@@ -36,6 +37,10 @@ body {
 
 .snake_head {
     background: black;
+}
+
+.snake_body {
+    background: yellowgreen;
 }
 
 .food {
