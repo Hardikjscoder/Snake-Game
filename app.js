@@ -90,8 +90,7 @@ function gameLogic() {
         const lastScore = scoreArr[scoreArr.length - 1]
         const prevScore = scoreArr[scoreArr.length - 2]
         const max = Math.max(...scoreArr)
-        if (Number.parseInt(score) > Number.parseInt(max)) {
-            console.log(true)
+        if (lastScore > prevScore || Number.parseInt(score) > Number.parseInt(max)) {
             scoreElement.innerHTML = `New High Score : ${score}`
         } else {
             scoreElement.innerHTML = `Score : ${score}`
