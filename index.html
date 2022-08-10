@@ -7,15 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Snake Game - Vanilla Javascript GAME</title>
 </head>
 
 <body>
 
     <div class="container">
-        <button id="reloadBtn">Restart</button>
-        <button id="pauseBtn" style="display: inline-block;">Pause the game</button>
-        <button id="resumeBtn" style="display: none;">Resume the game</button>
+        <button id="reloadBtn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        <button id="pauseBtn" style="display: inline-block;"><i class="fa-solid fa-pause"></i></button>
+        <button id="resumeBtn" style="display: none;"><i class="fa-solid fa-play"></i></button>
         <h2 id="score">Score : 0</h2>
         <h1>Snake Game</h1>
         <div id="game"></div>

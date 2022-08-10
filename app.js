@@ -18,9 +18,12 @@ let snakeArray = [
         y: 15
     }
 ]
+
+let a = 2
+let b = 16
 let food = {
-    x: Math.round(Math.random() * 10),
-    y: Math.round(Math.random() * 8)
+    x: Math.round(a + (b - a) * Math.random()),
+    y: Math.round(a + (b - a) * Math.random())
 }
 let score = 0
 
@@ -75,7 +78,6 @@ function gameLogic() {
                 y: 15
             }
         ]
-        scoreElement.innerHTML = `New High Score : ${score}`
         saveHighScore(score)
     }
 
@@ -101,8 +103,6 @@ function gameLogic() {
             x: snakeArray[0].x + inputDirection.x,
             y: snakeArray[0].y + inputDirection.y
         })
-        let a = 2
-        let b = 16
         food = {
             x: Math.round(a + (b - a) * Math.random()),
             y: Math.round(a + (b - a) * Math.random())
@@ -148,14 +148,13 @@ resumeGameBtn.addEventListener('click', () => {
     resumeGameBtn.style.display = 'none'
 })
 
-
 // Main logic
 requestAnimationFrame(main)
 
 addEventListener('keydown', event => {
     inputDirection = {
         x: 0,
-        y: 1
+        y: 0
     }
     switch (event.key) {
         case 'ArrowUp':
